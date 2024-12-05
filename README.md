@@ -61,7 +61,6 @@ Crear una skill para Alexa que se conecte a una API externa (como OpenWeatherMap
 ## 1. **Crear una cuenta de desarrollador en Amazon**  
 Si no se tiene una cuenta de desarrollador en Amazon, se debe crear una en [Amazon Developer Console](https://developer.amazon.com/). Luego, se debe iniciar sesión y acceder a la consola de desarrollador.
 
-![Imagen de cuenta Amazon Developer](<img/0.png>)
 
 ## 2. **Crear un nuevo proyecto de Alexa**  
 - En la consola de Alexa, se debe seleccionar "Create Skill" (Crear Skill).
@@ -69,40 +68,40 @@ Si no se tiene una cuenta de desarrollador en Amazon, se debe crear una en [Amaz
 - Seleccionar el tipo de skill "Custom" (Personalizado).
 - Asignar un nombre a la skill (por ejemplo, "Clima Alexa").
 
-![Captura de pantalla](<img/1.png>)
+![Captura de pantalla](<img/0.PNG>)
 
 ## 3. **Configurar las intenciones de la Skill**  
 - Se debe crear una intención llamada `Clima`.
 - Configurar frases de activación como se muestra en la imagen:
 
-![Configuración de intenciones](<img/2.png>)
+![Configuración de intenciones](<img/1.PNG>)
 
 ## 4. **Verificación de intenciones en JSON**  
-![Verificación en JSON](<img/3.png>)
+![Verificación en JSON](<img/2.PNG>)
 
 ## 5. **Reemplazar el `skillCode` de Lambda por el proporcionado por el docente**  
-![Reemplazo de código Lambda](<img/4.png>)
+![Reemplazo de código Lambda](<img/3.PNG>)
 
-![Configuración Lambda](<img/5.png>)
+![Configuración Lambda](<img/4.PNG>)
 
 ## 6. **Crear un API para la conectividad**  
-![Creación de API](<img/6.png>)
+![Creación de API](<img/5.PNG>)
 
 ## 7. **Aplicar las coordenadas**  
-![Aplicación de coordenadas](<img/7.png>)
+![Aplicación de coordenadas](<img/6.PNG>)
 
 ## 8. **Configurar el nombre de invocación**  
-![Configuración de invocación](<img/8.png>)
+![Configuración de invocación](<img/7.PNG>)
 
 ## 9. **Personalizar el icono y agregarlo**  
-![Personalización de icono](<img/9.png>)
+![Personalización de icono](<img/8.PNG>)
 
 ## 10. **Configurar la privacidad y esperar a que validen**  
-![Configuración de privacidad](<img/11.png>)  
-![Validación](<img/10.png>)
+![Configuración de privacidad](<img/9.PNG>)  
+![Validación](<img/10.PNG>)
 
 ## 11. **Realizar las pruebas**  
-![Pruebas](<img/11.png>)
+![Pruebas](<img/11.PNG>)
 
 
 ## 12. **Desarrollar la lógica de la skill usando AWS Lambda**  
