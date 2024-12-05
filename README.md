@@ -56,5 +56,96 @@ Crear una skill para Alexa que se conecte a una API externa (como OpenWeatherMap
 
 4. **Crear una skill escalable y fácil de mantener**  
    Se enfocará en la importancia de estructurar el código de manera modular y eficiente, permitiendo que la skill se pueda ampliar o modificar con facilidad en el futuro.
+# Descripción del Proceso
+
+## 1. **Crear una cuenta de desarrollador en Amazon**  
+Si no se tiene una cuenta de desarrollador en Amazon, se debe crear una en [Amazon Developer Console](https://developer.amazon.com/). Luego, se debe iniciar sesión y acceder a la consola de desarrollador.
+
+![Imagen de cuenta Amazon Developer](Img/image.png)
+
+## 2. **Crear un nuevo proyecto de Alexa**  
+- En la consola de Alexa, se debe seleccionar "Create Skill" (Crear Skill).
+- Elegir el idioma (por ejemplo, "Español").
+- Seleccionar el tipo de skill "Custom" (Personalizado).
+- Asignar un nombre a la skill (por ejemplo, "Clima Alexa").
+
+![Captura de pantalla](<Img/Captura de pantalla 2024-12-05 001432.png>)
+
+## 3. **Configurar las intenciones de la Skill**  
+- Se debe crear una intención llamada `Clima`.
+- Configurar frases de activación como se muestra en la imagen:  
+
+![Configuración de intenciones](<Img/Captura de pantalla 2024-12-04 225146.png>)
+
+## 4. **Verificación de intenciones en JSON**  
+![Verificación en JSON](<Img/Captura de pantalla 2024-12-04 225318.png>)
+
+## 5. **Reemplazar el `skillCode` de Lambda por el proporcionado por el docente**  
+![Reemplazo de código Lambda](<Img/Captura de pantalla 2024-12-04 225833.png>)
+
+![Configuración Lambda](<Img/Captura de pantalla 2024-12-04 225859.png>)
+
+## 6. **Crear un API para la conectividad**  
+![Creación de API](<Img/Captura de pantalla 2024-12-04 230046.png>)
+
+## 7. **Aplicar las coordenadas**  
+![Aplicación de coordenadas](<Img/Captura de pantalla 2024-12-04 230810.png>)
+
+## 8. **Configurar el nombre de invocación**  
+![Configuración de invocación](<Img/Captura de pantalla 2024-12-04 231508.png>)
+
+## 9. **Personalizar el icono y agregarlo**  
+![Personalización de icono](<Img/Captura de pantalla 2024-12-04 232033.png>)
+
+## 10. **Configurar la privacidad y esperar a que validen**  
+![Configuración de privacidad](<Img/Captura de pantalla 2024-12-04 232407.png>)  
+![Validación](<Img/Captura de pantalla 2024-12-04 232444.png>)
+
+## 11. **Realizar las pruebas**  
+![Pruebas](<Img/Captura de pantalla 2024-12-04 233242.png>)
+
+## 12. **Descargar e iniciar sesión con la misma cuenta para sincronizar y verificar en la app de Alexa móvil (sin dispositivo Alexa físico)**  
+![Verificación en Alexa móvil](<Img/WhatsApp Image 2024-12-04 at 11.57.43 PM.jpeg>)
+
+## 13. **Desarrollar la lógica de la skill usando AWS Lambda**  
+- **Configurar AWS Lambda**: Se debe crear una nueva función Lambda en la consola de AWS, utilizando el código proporcionado por el docente.
+- **Código para obtener el clima**: Se utilizará la API de OpenWeatherMap y se configurará el archivo `index` para interactuar con esta API. A continuación, se presenta un ejemplo de código para la función Lambda:
+
+```javascript
+// Ejemplo de código para Lambda
+const https = require('https');
+
+exports.handler = async (event) => {
+    const city = event.request.intent.slots.city.value;
+    const apiKey = 'tu_api_key';
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=es&units=metric`;
+
+    const data = await new Promise((resolve, reject) => {
+        https.get(url, (response) => {
+            let data = '';
+            response.on('data', chunk => {
+                data += chunk;
+            });
+            response.on('end', () => {
+                resolve(JSON.parse(data));
+            });
+            response.on('error', (err) => reject(err));
+        });
+    });
+
+    const clima = data.weather[0].description;
+    const temperatura = data.main.temp;
+
+    return {
+        version: '1.0',
+        response: {
+            outputSpeech: {
+                type: 'PlainText',
+                text: `El clima en ${city} es ${clima} y la temperatura es de ${temperatura} grados Celsius.`,
+            },
+            shouldEndSession: true
+        }
+    };
+};
 
 ---
