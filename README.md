@@ -61,7 +61,7 @@ Crear una skill para Alexa que se conecte a una API externa (como OpenWeatherMap
 ## 1. **Crear una cuenta de desarrollador en Amazon**  
 Si no se tiene una cuenta de desarrollador en Amazon, se debe crear una en [Amazon Developer Console](https://developer.amazon.com/). Luego, se debe iniciar sesión y acceder a la consola de desarrollador.
 
-![Imagen de cuenta Amazon Developer](Img/image.png)
+![Imagen de cuenta Amazon Developer](<img/0.png>)
 
 ## 2. **Crear un nuevo proyecto de Alexa**  
 - En la consola de Alexa, se debe seleccionar "Create Skill" (Crear Skill).
@@ -69,45 +69,43 @@ Si no se tiene una cuenta de desarrollador en Amazon, se debe crear una en [Amaz
 - Seleccionar el tipo de skill "Custom" (Personalizado).
 - Asignar un nombre a la skill (por ejemplo, "Clima Alexa").
 
-![Captura de pantalla](<Img/Captura de pantalla 2024-12-05 001432.png>)
+![Captura de pantalla](<img/1.png>)
 
 ## 3. **Configurar las intenciones de la Skill**  
 - Se debe crear una intención llamada `Clima`.
-- Configurar frases de activación como se muestra en la imagen:  
+- Configurar frases de activación como se muestra en la imagen:
 
-![Configuración de intenciones](<Img/Captura de pantalla 2024-12-04 225146.png>)
+![Configuración de intenciones](<img/2.png>)
 
 ## 4. **Verificación de intenciones en JSON**  
-![Verificación en JSON](<Img/Captura de pantalla 2024-12-04 225318.png>)
+![Verificación en JSON](<img/3.png>)
 
 ## 5. **Reemplazar el `skillCode` de Lambda por el proporcionado por el docente**  
-![Reemplazo de código Lambda](<Img/Captura de pantalla 2024-12-04 225833.png>)
+![Reemplazo de código Lambda](<img/4.png>)
 
-![Configuración Lambda](<Img/Captura de pantalla 2024-12-04 225859.png>)
+![Configuración Lambda](<img/5.png>)
 
 ## 6. **Crear un API para la conectividad**  
-![Creación de API](<Img/Captura de pantalla 2024-12-04 230046.png>)
+![Creación de API](<img/6.png>)
 
 ## 7. **Aplicar las coordenadas**  
-![Aplicación de coordenadas](<Img/Captura de pantalla 2024-12-04 230810.png>)
+![Aplicación de coordenadas](<img/7.png>)
 
 ## 8. **Configurar el nombre de invocación**  
-![Configuración de invocación](<Img/Captura de pantalla 2024-12-04 231508.png>)
+![Configuración de invocación](<img/8.png>)
 
 ## 9. **Personalizar el icono y agregarlo**  
-![Personalización de icono](<Img/Captura de pantalla 2024-12-04 232033.png>)
+![Personalización de icono](<img/9.png>)
 
 ## 10. **Configurar la privacidad y esperar a que validen**  
-![Configuración de privacidad](<Img/Captura de pantalla 2024-12-04 232407.png>)  
-![Validación](<Img/Captura de pantalla 2024-12-04 232444.png>)
+![Configuración de privacidad](<img/11.png>)  
+![Validación](<img/10.png>)
 
 ## 11. **Realizar las pruebas**  
-![Pruebas](<Img/Captura de pantalla 2024-12-04 233242.png>)
+![Pruebas](<img/11.png>)
 
-## 12. **Descargar e iniciar sesión con la misma cuenta para sincronizar y verificar en la app de Alexa móvil (sin dispositivo Alexa físico)**  
-![Verificación en Alexa móvil](<Img/WhatsApp Image 2024-12-04 at 11.57.43 PM.jpeg>)
 
-## 13. **Desarrollar la lógica de la skill usando AWS Lambda**  
+## 12. **Desarrollar la lógica de la skill usando AWS Lambda**  
 - **Configurar AWS Lambda**: Se debe crear una nueva función Lambda en la consola de AWS, utilizando el código proporcionado por el docente.
 - **Código para obtener el clima**: Se utilizará la API de OpenWeatherMap y se configurará el archivo `index` para interactuar con esta API. A continuación, se presenta un ejemplo de código para la función Lambda:
 
